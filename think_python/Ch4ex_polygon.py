@@ -1,3 +1,4 @@
+#!/usr/env/python3
 import turtle #import the module turtle
 
 bob = turtle.Turtle() #from the module turtle, use the Turtle func to create a Turtle object 
@@ -7,7 +8,13 @@ print(bob) #bob refers to an object with type Turtle as defined in the module tu
 available methods include: fd (forward), bk(backward) lt(left turn) rt (right turn)
 '''
 bob.fd(100) #methods are requests, i.e move forward 100 pixels
-bob.lt(100)
+bob.lt(90)
+bob.fd(100)
+bob.rt(90)
+bob.bk(100)
+bob.lt(90)
+bob.bk(100)
+
 
 #bob moves east and then north, leaving two lines behind
 turtle.mainloop() #mainloop means to wait for the user to do something. 
