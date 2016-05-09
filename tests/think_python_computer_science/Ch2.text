@@ -1,0 +1,62 @@
+Chapter 2. 
+Michael Ketiku
+
+
+Python3 Keywords include class, def, if, elif, etc..
+
+Expressions: combination of values, variables and operators
+	value ex. 1, 7
+	variable ex. y
+	operator ex. = or + 
+	put it all together y = 1 + 7
+
+Statement: unit of code that has an effect, like creating a variable or displaying a variable.  A statement is a transition function. It takes a unit and manipulates it then it is outputted.
+
+String concatenation = + 
+	ex. '2' + '5me' =  '25me'
+
+Comments: 
+	# single line comment
+		'''
+	multiline comment
+	'''
+
+Types of errors: 
+	Syntax
+		program statement structure, bad arrangement of tokens or structure
+	Semantic
+		program runs fine but executes with the wrong meaning or does the wrong thing. 
+	Run time
+		appears when the program starts running aka. exceptions
+
+2.10 Exercises
+Exercise 2.1. 
+• We’ve seen that n = 42 is legal. What about 42 = n?
+	This is illegal, 42 is an illegal variable name. The thing you want to set goes first and its value is wrong. Can not assign to a type literal
+
+• How about x = y = 1?
+	This is legal
+• In some languages every statement ends with a semi-colon, ;. What happens if you put a
+semi-colon at the end of a Python statement?
+	It is evaluated as is, the semi-colon is ignored. 
+• What if you put a period at the end of a statement?
+	If the value before it is an integer in the statement. If so python evaluates it as a float(fraction). However if it follows a string then python will show a syntax error. The structure of the statement is invalid. 
+
+• In math notation you can multiply x and y .like this: xy. What happens if you try that in
+Python?
+	the interpreter throws out an error for a undefined token. 
+	besides it is not defined syntatically because it lacks the proper operator in front of it. python thinks it may be a variable and it is undefined. 
+Exercise 2.2. Practice using the Python interpreter as a calculator:
+1. The volume of a sphere with radius r is (4/3)πr^3 .What is the volume of a sphere with radius 5?
+	pi = 3.14
+	r= 5 
+	volume = (4/3) * pi * float(r**3)
+	print(volume)
+2. Suppose the cover price of a book is $24.95, but bookstores get a 40% discount. Shipping costs
+$3 for the first copy and 75 cents for each additional copy. What is the total wholesale cost for
+60 copies?
+	((60 - 1) * .75 ) + 3 + ( .4 * 24.95) 
+
+3. If I leave my house at 6:52 am and run 1 mile at an easy pace (8:15 per mile), then 3 miles at
+tempo (7:12 per mile) and 1 mile at easy pace again, what time do I get home for breakfast?
+	(2 * 8.15) + (3 * 7.12)   = 37.66 minutes = 38 minutes and 6 seconds

@@ -1,0 +1,11 @@
+cover_price = 24.95 #cover price of book
+discount = .4 * cover_price #discount the bookstore gets
+shipping_cost = 3 + (copy - 1) '
+
+
+first_copy = 3
+additional_copy = .75 * 
+
+num_copies = 60 
+
+((60 - 1) * .75 ) + 3 + ( .4 * 24.95)

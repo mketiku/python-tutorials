@@ -1,0 +1,109 @@
+Chapter 3. 
+
+Function: named sequence of statements that performs a computation. A function takes an argument and returns a result.
+
+function call
+    ex. type(42), print("Hello World")
+    name = type, argument = 42 , return= type of value
+    name = print, argument = string "Hello World", return =print the line to the screen
+
+conversion functions: 
+    int('32') #takes the string 32 and converts it to the integer 32 
+    however the conversion int("helloworld") does not work because it is an invalid literal 
+    int, float, str 
+
+Math functions: 
+Python comes with a math module providing many math functions by default. 
+We can use it by indicating an import at the beginning like so
+    import math
+    math.factorial(x)
+    this uses dot notation 
+
+def print_names(): 
+#header: def  is keyword indicating that what follows is a function.
+#empty parantheses indicates that the function takes no arguments 
+    print("Michael")
+    print("Tom")
+    print("Rachel") #body <-
+#variable names: legal = letters, numbers and underscore but first character can not be a number. 
+empty line indicates that the function is complete. 
+
+defining a function creates a function object of type function 
+
+\calling a function function()
+def print_lyrics():
+print("I'm a lumberjack, and I'm okay.")
+print("I sleep all night and I work all day.")
+def repeat_lyrics():
+print_lyrics()
+print_lyrics()
+repeat_lyrics()
+
+function definitions are executed like any other statements but 
+the do not run until called explicitly. 
+
+
+def print_twice(bruce) :
+    print(bruce)
+    print(bruce)
+
+function print_twice assigns the argument to a parameter called bruce. when called it prints the value of the  the parameter. 
+
+any expression can be an argument for print twice i.e 'spam '
+
+variables and parameters (local)
+def cat_twice(cat1,cat2) :
+    cat = cat1 + cat2 
+    print_twice(cat)
+function cat_twice takes 2 arguments, concatentaes them and the using the print_twice function from before prints the results twice.
+
+stack diagrams
+    stack diagrams show the value of each variable and what function it belongs to.
+    every variable created outside a function belongs to the top most frame __main__
+traceback = list of functions, 
+
+fruitful functions: return a value
+void functions: perform an action but do not return a value
+
+
+all the functions we have written so far ar void, they perform actions on an argument but do not return a value.
+Ex 1. Write a function named right_justify that takes a string named s as a parameter
+and prints the string with enough leading spaces so that the last letter of the string is in column 70
+of the display.
+>>> right_justif
+
+ Answer
+def right_justify(s) :
+    x = len(str(s))
+    if x <= 70:
+        y = 70 - x
+        print (' ' * y + s) 
+    else:
+        print ("string length exceeds column width")
+
+right_justify()
+
+Ex 2.
+
+
+def do_twice(print_twice, arg):
+    '''
+    function do_twice takes 2 arguments(function object print_twice and a generic argument)
+    then it calls the function print_twice and passes the argument to it
+
+    '''
+    print_twice(arg)
+    print_twice(arg)
+
+def print_twice(arg):
+    print(arg)
+    print(arg)
+
+def do_four(print_twice, arg):
+    '''
+    function do_four takes 2 arguments and returns a nested function twice
+    '''
+     do_twice(print_twice, arg)
+     do_twice(print_twice, arg)
+
+
