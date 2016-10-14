@@ -47,7 +47,31 @@ class Employee:
         if day.weekday() == 5 or day.weekday() == 6:
             return False
         return True
+    
+    def __repr__(self):
+        '''
+        Representation of an employee that allows a developer to recreate the object
+        '''
+        return "Employee('{}', '{}', '{}')".format(self.first,self.last,self.pay)
+    
+    def __str__(self):
+        '''
+        String representation of an employtee that is displayed to an enduser
+        '''
+        return '{} - {}'.format(self.fullname(),self.email)
 
+    def __add__(self,other):
+        '''
+        Return an employee added together
+        '''
+        return self.pay + other.pay
+
+    def __len__(self):
+        '''
+        Return the length of an employees full name, not useful
+        in the real world, but it is helpful to understand special methods
+        '''
+        return len(self.fullname())
 
 class Developer(Employee):
     '''
@@ -72,6 +96,7 @@ class Manager(Employee):
         Add a list of employees that a manager supervises to attributes list
         Allow the list of employees to be empty, if it is not proceed 
         '''
+        # Init is a special __dunder__ method
         super().__init__(first, last, pay)
         if employees is None:
             self.employees = []
@@ -91,33 +116,22 @@ class Manager(Employee):
             print('-->', emp.fullname())
 
 
-dev_1 = Developer('Test', 'User', 9999, 'Python')
-dev_2 = Developer('Michael', 'Ketiku', 10000, 'Java')
 
-emp_str_1 = 'John-Doe-70000'
-emp_str_2 = 'Steve-Smith-30000'
-emp_str_3 = 'Jane-Doe-90000'
+emp_1 = Employee('Test', 'User', 9999)
+emp_2 = Employee('Michael', 'Ketiku', 10000)
 
 
-# Allows a user to view the method resolution order for a class
-# print(help(Developer))
-# print(dev_1.email)
+print(len(emp_1))
+# print(str(emp_1)) # end user represenation
+# print(emp_1)
 
 
-# print(dev_2.pay)
-# dev_1.apply_raise()
-# print(dev_1.pay)
+# print(1+2)
+# print(int.__add__(1,2))
+# print(str.__add__('1','2')) # This determines what a addition function displays as
 
-# print(dev_2.email)
-# print(dev_2.prog_lang)
+# # repr(emp_1)
+# # str(emp_1)
 
-mgr_1 = Manager('Sue', 'Sue', 10000, [dev_1])
-
-# mgr_1.add_emp(dev_2) # easily add and remove employees from an employee
-# mgr_1.remove_emp(dev_1)
-
-# print(mgr_1.email)
-# mgr_1.print_emp()
-
-# print(isinstance(Manager, Manager))
+# print(emp_1+emp_2) # using a special dunder method to add 2 employees pay together
 
