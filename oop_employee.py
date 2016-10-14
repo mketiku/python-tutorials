@@ -13,10 +13,29 @@ class Employee:
         self.first = first
         self.last = last
         self.pay = pay
-        self.email = first + '.' + last + '@company.com'
-
+    
+    @property
+    def email(self):
+        '''
+        Use a module as a property
+        '''
+        return '{}.{}@email.com'.format(self.first, self.last)
+    
+    @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
+
+    @fullname.setter
+    def fullname(self,name):
+        first, last = name.split(' ')
+        self.first = first
+        self.last = last 
+
+    @fullname.deleter
+    def fullname(self):
+        print('Delete Name!')
+        self.first = None
+        self.last = None
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amount)  # example
@@ -121,17 +140,10 @@ emp_1 = Employee('Test', 'User', 9999)
 emp_2 = Employee('Michael', 'Ketiku', 10000)
 
 
-print(len(emp_1))
-# print(str(emp_1)) # end user represenation
-# print(emp_1)
+emp_1.fullname = 'Michael Ketiku'
+
+print(emp_1.fullname) 
+print(emp_1.email)
 
 
-# print(1+2)
-# print(int.__add__(1,2))
-# print(str.__add__('1','2')) # This determines what a addition function displays as
-
-# # repr(emp_1)
-# # str(emp_1)
-
-# print(emp_1+emp_2) # using a special dunder method to add 2 employees pay together
-
+del emp_1.fullname
