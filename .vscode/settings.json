@@ -1,6 +1,5 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    // "python.linting.pylintPath": "/usr/local/bin/pylint",
-    "python.linting.flake8Enabled": true
-
+    "python.linting.flake8Enabled": true,
+    "python.linting.pyLintEnabled": false
 }
