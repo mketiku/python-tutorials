@@ -1,0 +1,40 @@
+1.1. nice docker ps output
+
+Just pipe docker ps output to less -S so that the table rows are not wrapped:
+
+docker ps -a | less -S
+
+
+1.2 follow the logs
+
+docker logs won't watch the logs by default unless use the -f flag:
+
+docker logs <containerid> -f
+
+
+
+Docker has an internal pool of IPs which it uses for container IP addresses. These are invisible to the outside by default and accessible via a bridge interface.
+3.1 looking up port mappings
+
+docker run accepts explicit port mappings as parameters or you can specify -P to map all ports automatically. The latter has the advantage of preventing conflicts and looking up the assigned ports can be done as follows:
+
+docker port <containerId> <portNumber>
+# or
+docker inspect --format '{{.NetworkSettings.Ports}}' <containerId>
+
+
+2. Docker exec of course
+This is probably one of the tips that everyone mentions. When you're using docker not just for your staging, production or testing environments, but also on your local machine to run database, servers, keystores etc. it is very convenient to be able to run commands directly within the context of a running container.
+
+We do a lot with cassandra, and checking whether the tables contain correct data, or if you just want to execute a quick CQL query docker exec works great:
+
+$ docker ps --format "table {{.ID}}\t {{.Names}}\t {{.Status}}"
+CONTAINER ID        NAMES               STATUS
+682f47f97fce         cassandra           Up 2 minutes
+4c45aea49180         consul              Up 2 minutes
+
+$ docker exec -ti 682f47f97fce cqlsh --color
+Connected to Test Cluster at 127.0.0.1:9042.
+[cqlsh 5.0.1 | Cassandra 2.2.3 | CQL spec 3.3.1 | Native protocol v4]
+Use HELP for help.
+cqlsh>
