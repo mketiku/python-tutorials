@@ -1,5 +1,5 @@
 # PythonForProgrammers/SimpleClass.py
-class Simple:
+class Simple(object):
     def __init__(self, str):
         print("Inside the Simple constructor")
         self.s = str

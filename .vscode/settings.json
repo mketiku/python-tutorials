@@ -1,5 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
     "python.linting.flake8Enabled": true,
-    "python.linting.pyLintEnabled": false
+    "python.formatting.provider": "yapf",
+    "python.formatting.formatOnSave": true
 }
